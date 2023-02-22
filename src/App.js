@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ModalFormulario from './componentes/ModalFormulario';
+import Button from 'react-bootstrap/Button';
+
+
 
 function App() {
+
+  const [modalFormulario, setModalFormulario] = useState(false)
+  const [show, setShow] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+      <Button variant="primary" onClick={() =>
+        setShow(true)
+      }>
+        colocar imagem svg
+      </Button>
+
+      <ModalFormulario
+        show={show}
+        onHide={() => setShow(false)}
+      />
+
+
+
     </div>
   );
 }
